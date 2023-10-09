@@ -22,7 +22,7 @@ const Login = () => {
       }
     } catch (error) {
       console.error('Error logging in:', error);
-      setLoginError('An error occurred while logging in.'); // Set a generic login error message
+      setLoginError('Password incorrect'); // Set a generic login error message
     }
   };
 

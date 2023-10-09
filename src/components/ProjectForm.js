@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { database, storage } from "../firebase"; // Import the Firebase
+import { useNavigate } from "react-router-dom";
+import { database, storage , auth} from "../firebase"; // Import the Firebase
 import "../../src/style/projectwork.css";
 import "../style/projectwork.css";
 
@@ -11,11 +12,25 @@ const ProjectForm = () => {
   const [projectTitle, setProjectTitle] = useState("");
   const [toolsTech, setToolsTech] = useState("");
   const [submissionStatus, setSubmissionStatus] = useState(null); // State for submission status message
+  const navigate = useNavigate();
 
   const handleFileUpload = (e) => {
     // Handle file upload and set the "image" state
     const selectedFile = e.target.files[0];
     setImage(selectedFile);
+  };
+
+  const handleLogout = () => {
+    // Logout the user
+    auth.signOut().then(() => {
+      // Handle successful logout
+      console.log("User logged out");
+      // Navigate to the login page
+      navigate("/signup"); 
+    }).catch((error) => {
+      // Handle error
+      console.error("Error logging out:", error);
+    });
   };
 
   const handleSubmit = async (e) => {
@@ -74,6 +89,9 @@ const ProjectForm = () => {
 
   return (
     <div>
+       <button onClick={handleLogout} className="logout-button">
+        Logout
+      </button>
       <h2>Project Submission Form</h2>
       {submissionStatus && (
         <div className="error-message">{submissionStatus}</div>
