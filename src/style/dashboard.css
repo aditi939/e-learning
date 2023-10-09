@@ -1,0 +1,43 @@
+/* Dashboard.css */
+
+.video-container {
+    padding: 20px;
+    background-color: #f0f0f0;
+  }
+  
+  .video-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .video-card {
+    width: 300px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .video-card a {
+    text-decoration: none;
+    color: #333;
+  }
+  
+  .video-thumbnail {
+    width: 100%;
+    height: auto;
+    max-height: 180px;
+  }
+  
+  .video-title {
+    font-size: 18px;
+    margin: 10px 0;
+  }
+  
+  .video-description {
+    font-size: 14px;
+    color: #777;
+  }
+  
